@@ -3,16 +3,26 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Students enteredddd:</h1>
+        <h1>Students Entered:</h1>
         <h2 id="count-el">0</h2>
         <button id="increment-btn" onclick="increment()">INCREMENT</button>
-        
+        <button id="save-btn" onclick="save()">SAVE</button>
+        <h3 id="saved-counts">Previous Entries: </h3>
+        <p id="count-list"></p>
+
         <script>
             let count = 0;
+            let savedCounts = [];
+
             function increment() {
                 count++;
                 console.log(count);
                 document.getElementById("count-el").innerText = count;
+            }
+
+            function save() {
+                savedCounts.push(count); 
+                document.getElementById("count-list").innerText = "Previous Entries: " + savedCounts.join("- ");
             }
         </script>
     </body>
